@@ -1,0 +1,14 @@
+{
+  "name": "verus-skills",
+  "owner": {
+    "name": "verus-j"
+  },
+  "description": "verus-j의 Claude Code 스킬 모음",
+  "plugins": [
+    {
+      "name": "ai-tdd",
+      "source": "./plugins/ai-tdd",
+      "description": "AI와 사람이 페어로 진행하는 TDD 협업 워크플로우"
+    }
+  ]
+}

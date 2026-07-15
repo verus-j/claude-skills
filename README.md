@@ -1,25 +1,52 @@
 # claude-skills
 
-[Claude Code](https://claude.com/claude-code) 스킬을 버전 관리하는 저장소.
+[Claude Code](https://claude.com/claude-code) 스킬을 **플러그인 마켓플레이스**로 배포하는 저장소.
 
-각 스킬은 최상위 디렉토리 하나(`<skill-name>/SKILL.md`)로 구성된다.
+마켓플레이스 이름: `verus-skills`
 
-## 스킬 목록
+## 스킬(플러그인) 목록
 
-- [`ai-tdd`](ai-tdd/SKILL.md) — AI와 사람이 페어로 진행하는 TDD 협업 워크플로우.
+| 플러그인 | 설명 |
+|----------|------|
+| [`ai-tdd`](plugins/ai-tdd/skills/ai-tdd/SKILL.md) | AI와 사람이 페어로 진행하는 TDD 협업 워크플로우 |
 
 ## 설치 (다른 PC 포함)
 
-저장소를 클론하고 설치 스크립트를 실행하면, 모든 스킬이 `~/.claude/skills/`로 심링크된다:
+Claude Code에서 마켓플레이스를 등록하고 원하는 플러그인을 설치한다:
 
-```sh
-git clone https://github.com/verus-j/claude-skills.git
-cd claude-skills
-./install.sh
+```
+/plugin marketplace add verus-j/claude-skills
+/plugin install ai-tdd@verus-skills
 ```
 
-- 저장소가 **단일 진실 공급원**이다. 이후 `git pull` 한 번이면 그 PC의 모든 스킬이 갱신된다.
-- 이미 같은 이름의 스킬이 있으면 건너뛴다. 덮어쓰려면 `./install.sh --force` (기존 항목은 `.bak.<타임스탬프>`로 백업).
-- 설치 위치를 바꾸려면 `CLAUDE_SKILLS_DIR=/경로 ./install.sh`.
+설치 후 스킬은 플러그인 이름으로 네임스페이스된다 — 예: `/ai-tdd:ai-tdd`. Skill 자동 트리거도 동작한다.
 
-편집은 클론한 저장소에서 하면 심링크를 통해 Claude Code가 로드하는 스킬에 바로 반영된다. 변경 후 `git push`로 공유한다.
+- **자동 업데이트**: 이 저장소에 push하면 새 커밋이 새 버전으로 인식된다. 사용자는 `/plugin marketplace update`로 갱신한다.
+- **제거**: `/plugin uninstall ai-tdd@verus-skills`
+- CLI로도 가능: `claude plugin marketplace add verus-j/claude-skills`, `claude plugin install ai-tdd@verus-skills`.
+
+## 저장소 구조
+
+```
+.claude-plugin/marketplace.json      # 마켓플레이스 카탈로그 (플러그인 목록)
+plugins/<plugin>/
+  .claude-plugin/plugin.json         # 플러그인 매니페스트
+  skills/<skill>/SKILL.md            # 스킬 본문
+```
+
+## 새 스킬 추가
+
+1. `plugins/<이름>/skills/<이름>/SKILL.md` 작성
+2. `plugins/<이름>/.claude-plugin/plugin.json` 작성 (`name`, `description`)
+3. `.claude-plugin/marketplace.json`의 `plugins` 배열에 항목 추가 (`name`, `source`, `description`)
+4. `claude plugin validate .`로 검증 후 커밋·push
+
+## 로컬 개발 (메인테이너)
+
+저장소에서 직접 스킬을 편집하며 바로 테스트하려면 심링크를 건다:
+
+```sh
+ln -s "$PWD/plugins/ai-tdd/skills/ai-tdd" ~/.claude/skills/ai-tdd
+```
+
+이러면 편집이 즉시 반영된다. 단, 같은 머신에서 마켓플레이스로도 설치하면 스킬이 중복되니 한쪽만 사용한다.
