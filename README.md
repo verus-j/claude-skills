@@ -8,12 +8,18 @@
 
 - [`ai-tdd`](ai-tdd/SKILL.md) — AI와 사람이 페어로 진행하는 TDD 협업 워크플로우.
 
-## 설치 (심링크)
+## 설치 (다른 PC 포함)
 
-이 저장소를 단일 진실 공급원으로 두고, 각 스킬을 `~/.claude/skills/`로 심링크한다:
+저장소를 클론하고 설치 스크립트를 실행하면, 모든 스킬이 `~/.claude/skills/`로 심링크된다:
 
 ```sh
-ln -s "$PWD/ai-tdd" ~/.claude/skills/ai-tdd
+git clone https://github.com/verus-j/claude-skills.git
+cd claude-skills
+./install.sh
 ```
 
-저장소에서 편집하면 Claude Code가 로드하는 스킬에 바로 반영된다.
+- 저장소가 **단일 진실 공급원**이다. 이후 `git pull` 한 번이면 그 PC의 모든 스킬이 갱신된다.
+- 이미 같은 이름의 스킬이 있으면 건너뛴다. 덮어쓰려면 `./install.sh --force` (기존 항목은 `.bak.<타임스탬프>`로 백업).
+- 설치 위치를 바꾸려면 `CLAUDE_SKILLS_DIR=/경로 ./install.sh`.
+
+편집은 클론한 저장소에서 하면 심링크를 통해 Claude Code가 로드하는 스킬에 바로 반영된다. 변경 후 `git push`로 공유한다.
