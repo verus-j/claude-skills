@@ -1,0 +1,7 @@
+{
+  "name": "code-smell-detector",
+  "description": "Fowler & Beck의 코드 스멜 카탈로그 기준으로 코드를 분석하고 심각도별 리포트를 생성",
+  "author": {
+    "name": "verus-j"
+  }
+}

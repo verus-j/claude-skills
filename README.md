@@ -9,6 +9,7 @@
 | 플러그인 | 설명 |
 |----------|------|
 | [`ai-tdd`](plugins/ai-tdd/skills/ai-tdd/SKILL.md) | AI와 사람이 페어로 진행하는 TDD 협업 워크플로우 |
+| [`code-smell-detector`](plugins/code-smell-detector/skills/code-smell-detector/SKILL.md) | Fowler & Beck의 코드 스멜 카탈로그 기준으로 코드를 분석하고 심각도별 리포트를 생성 |
 
 ## 설치 (다른 PC 포함)
 

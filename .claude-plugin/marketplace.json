@@ -9,6 +9,11 @@
       "name": "ai-tdd",
       "source": "./plugins/ai-tdd",
       "description": "AI와 사람이 페어로 진행하는 TDD 협업 워크플로우"
+    },
+    {
+      "name": "code-smell-detector",
+      "source": "./plugins/code-smell-detector",
+      "description": "Fowler & Beck의 코드 스멜 카탈로그 기준으로 코드를 분석하고 심각도별 리포트를 생성"
     }
   ]
 }
