@@ -8,8 +8,11 @@
 
 | 플러그인 | 설명 |
 |----------|------|
-| [`ai-tdd`](plugins/ai-tdd/skills/ai-tdd/SKILL.md) | AI와 사람이 페어로 진행하는 TDD 협업 워크플로우 |
+| [`ai-tdd`](plugins/ai-tdd/skills/ai-tdd/SKILL.md) | AI와 사람이 페어로 진행하는 TDD 사이클 실행 워크플로우 |
+| [`tdd-planner`](plugins/tdd-planner/skills/tdd-planner/SKILL.md) | TDD 시작 전 계약(스펙·테스트 리스트·리팩토링 리스트)을 규모에 비례한 깊이로 합의하는 계획 스킬 |
 | [`code-smell-detector`](plugins/code-smell-detector/skills/code-smell-detector/SKILL.md) | Fowler & Beck의 코드 스멜 카탈로그 기준으로 코드를 분석하고 심각도별 리포트를 생성 |
+
+`tdd-planner`(합의) → `ai-tdd`(사이클 실행)가 한 흐름이지만 **각각 독립 설치·사용이 가능**하다. 한쪽만 설치해도 상대 스킬의 몫을 최소 절차로 대신한다.
 
 ## 설치 (다른 PC 포함)
 

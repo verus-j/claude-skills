@@ -8,7 +8,12 @@
     {
       "name": "ai-tdd",
       "source": "./plugins/ai-tdd",
-      "description": "AI와 사람이 페어로 진행하는 TDD 협업 워크플로우"
+      "description": "AI와 사람이 페어로 진행하는 TDD 사이클 실행 워크플로우"
+    },
+    {
+      "name": "tdd-planner",
+      "source": "./plugins/tdd-planner",
+      "description": "TDD 시작 전 계약(스펙·테스트 리스트·리팩토링 리스트)을 규모에 비례한 깊이로 합의하는 계획 스킬"
     },
     {
       "name": "code-smell-detector",

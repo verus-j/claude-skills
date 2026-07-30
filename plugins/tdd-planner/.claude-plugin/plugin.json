@@ -1,0 +1,7 @@
+{
+  "name": "tdd-planner",
+  "description": "TDD 시작 전 계약(스펙·테스트 리스트·리팩토링 리스트)을 규모에 비례한 깊이로 합의하는 계획 스킬",
+  "author": {
+    "name": "verus-j"
+  }
+}
