@@ -36,7 +36,10 @@ Claude Code에서 마켓플레이스를 등록하고 원하는 플러그인을 �
 plugins/<plugin>/
   .claude-plugin/plugin.json         # 플러그인 매니페스트
   skills/<skill>/SKILL.md            # 스킬 본문
+  agents/<agent>.md                  # (선택) 스킬이 위임하는 서브에이전트
 ```
+
+`ai-tdd`는 사이클 후처리의 스멜 분석을 맡는 `refactor-analyst` 서브에이전트를 함께 배포한다 — 플러그인 설치 시 같이 들어온다.
 
 ## 새 스킬 추가
 
